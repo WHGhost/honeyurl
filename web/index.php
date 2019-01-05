@@ -13,8 +13,10 @@ foreach($_POST as $key => $val){
 	$params .= "&" . $key . "=" . $val;
 }
 
-$query = $db->prepare("INSERT INTO requests (time, ip, host, method, useragent, params) VALUES (NOW(), ?, ?, ?, ?, ?)");
-$query->execute(Array($_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_METHOD'], $_SERVER['HTTP_USER_AGENT'], $params))
+$https = !empty($SERVER['HTTPS']) && $_SERVER['HTTPS']==='on';
+
+$query = $db->prepare("INSERT INTO requests (time, ip, host, method, useragent, params, https) VALUES (NOW(), ?, ?, ?, ?, ?, ?)");
+$query->execute(Array($_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_METHOD'], $_SERVER['HTTP_USER_AGENT'], $params, $https))
 
 
 
