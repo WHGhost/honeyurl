@@ -14,6 +14,7 @@ CREATE TABLE requests (
 	method VARCHAR(7),
 	name TEXT,
 	useragent TEXT,
+	https BOOLEAN,
 	host TEXT,
 	url TEXT,
 	params TEXT

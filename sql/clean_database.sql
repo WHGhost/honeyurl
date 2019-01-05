@@ -2,3 +2,4 @@
 
 DROP DATABASE honeyurl;
 DROP USER 'honeyurl'@'localhost';
+FLUSH PRIVILEGES;
