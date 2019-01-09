@@ -9,5 +9,8 @@ fi
 echo "Creating and initializing database..."
 mysql -e "SOURCE sql/create_database.sql"
 ./sql/create_mysql_user.sh
+echo
 mysql -e "SOURCE sql/set_perms.sql"
+
+echo Done
 
